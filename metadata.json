@@ -1,0 +1,6 @@
+{
+  "name": "Digital Scrapbook for Girlfriend's Day",
+  "description": "A personalized digital scrapbook with shared photo memories, romantic messages, interactive coupons, and a love letter generator for National Girlfriend Day.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
