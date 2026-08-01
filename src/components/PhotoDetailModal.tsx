@@ -198,7 +198,7 @@ export const PhotoDetailModal: React.FC<PhotoDetailModalProps> = ({
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-sans font-bold uppercase tracking-wider text-[#2D2926] flex items-center gap-1.5">
                       <Sparkles className="w-3.5 h-3.5 text-[#C85C5C]" />
-                      Romantic Caption with Gemini AI
+                      Romantic Caption Ideas
                     </span>
                   </div>
                   <button

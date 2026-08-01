@@ -112,7 +112,7 @@ export const LoveLetterSection: React.FC<LoveLetterSectionProps> = ({
             className="px-4 py-2 bg-[#C85C5C] text-white hover:bg-[#b04b4b] font-sans uppercase font-bold text-xs tracking-wider shadow-sm transition-all cursor-pointer flex items-center gap-2"
           >
             <Wand2 className="w-4 h-4 text-white" />
-            <span>Gemini AI Letter Writer</span>
+            <span>Love Letter Writer</span>
           </button>
 
           <button
@@ -227,7 +227,7 @@ export const LoveLetterSection: React.FC<LoveLetterSectionProps> = ({
             <div className="flex items-center justify-between border-b border-[#E9E1D6] pb-3">
               <div className="flex items-center gap-2 text-[#2D2926] font-serif font-bold text-lg">
                 <Sparkles className="w-5 h-5 text-[#C85C5C]" />
-                <span>Gemini AI Love Letter Generator</span>
+                <span>Heartfelt Love Letter Generator</span>
               </div>
               <button
                 onClick={() => setIsAiOpen(false)}
@@ -238,7 +238,7 @@ export const LoveLetterSection: React.FC<LoveLetterSectionProps> = ({
             </div>
 
             <p className="text-xs text-[#4A443F]">
-              Enter any special memories or thoughts, and Gemini AI will craft a personalized romantic letter for {girlfriendName || "your girlfriend"}!
+              Enter any special memories or thoughts to craft a sweet, personalized romantic letter for {girlfriendName || "your girlfriend"}!
             </p>
 
             <div>

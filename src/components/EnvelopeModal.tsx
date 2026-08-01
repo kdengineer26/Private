@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import confetti from "canvas-confetti";
-import { Heart, Lock, Sparkles, KeyRound } from "lucide-react";
+import { Heart, Sparkles, KeyRound } from "lucide-react";
 import { soundManager } from "../utils/audio";
 
 interface EnvelopeModalProps {
@@ -23,7 +23,7 @@ export const EnvelopeModal: React.FC<EnvelopeModalProps> = ({
 
   const handleUnseal = () => {
     if (passcode && passcode.trim() !== "") {
-      if (inputPass.toLowerCase().trim() !== passcode.toLowerCase().trim()) {
+      if (inputPass.trim() !== passcode.trim()) {
         setPassError(true);
         soundManager.playPop();
         return;
@@ -116,10 +116,15 @@ export const EnvelopeModal: React.FC<EnvelopeModalProps> = ({
                   setInputPass(e.target.value);
                   setPassError(false);
                 }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleUnseal();
+                  }
+                }}
                 placeholder="Passcode..."
                 className={`w-full text-center px-3 py-2 text-sm bg-white border ${
                   passError ? "border-[#C85C5C] text-[#C85C5C]" : "border-[#E9E1D6] text-[#2D2926]"
-                } focus:outline-none focus:border-[#2D2926]`}
+                } focus:outline-none focus:border-[#2D2926] shadow-inner`}
               />
               {passError && (
                 <p className="text-xs text-[#C85C5C] font-bold mt-1.5">

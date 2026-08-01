@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ScrapbookData } from "../types";
-import { X, Save, Lock, Heart, RefreshCw, KeyRound } from "lucide-react";
+import { X, Heart, RefreshCw, Save, KeyRound } from "lucide-react";
 import { soundManager } from "../utils/audio";
 
 interface SettingsModalProps {
@@ -78,17 +78,17 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           <div>
             <label className="block text-xs uppercase tracking-wider font-sans font-bold text-[#2D2926] mb-1 flex items-center gap-1">
               <KeyRound className="w-3.5 h-3.5 text-[#C85C5C]" />
-              <span>Optional Secret Passcode for Envelope Lock</span>
+              <span>Secret Passcode for Envelope Lock</span>
             </label>
             <input
               type="text"
               value={pass}
               onChange={(e) => setPass(e.target.value)}
-              placeholder="Leave blank for no password, or set e.g. 'august1'"
+              placeholder="e.g. Nishudu_2266"
               className="w-full px-3 py-2 border border-[#E9E1D6] text-xs bg-white text-[#2D2926]"
             />
             <p className="text-[10px] font-sans text-[#A89F91] mt-1">
-              If set, she will need to enter this secret code to open the envelope!
+              She will need to enter this code to open the sealed envelope!
             </p>
           </div>
 

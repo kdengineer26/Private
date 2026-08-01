@@ -29,7 +29,7 @@ export const initialScrapbookData: ScrapbookData = {
   girlfriendName: "My Sweetheart",
   senderName: "Bunny",
   anniversaryDate: "2024-08-01",
-  passcode: "",
+  passcode: "Nishudu_2266",
   theme: "rose",
   bgMusicEnabled: false,
   photos: [

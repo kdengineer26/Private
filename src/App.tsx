@@ -21,6 +21,7 @@ export default function App() {
       const saved = localStorage.getItem("gf_scrapbook_data_v1");
       if (saved) {
         const parsed = JSON.parse(saved);
+        parsed.passcode = "Nishudu_2266";
         if (!parsed.senderName || parsed.senderName === "Your Boyfriend" || parsed.senderName === "Your Loving Boyfriend") {
           parsed.senderName = "Bunny";
         }
@@ -151,9 +152,21 @@ export default function App() {
 
   const handleShareApp = () => {
     soundManager.playSparkle();
-    navigator.clipboard.writeText(window.location.href);
-    setSharedToast(true);
-    setTimeout(() => setSharedToast(false), 2500);
+    const publicUrl = "https://ais-pre-irxpabs2oidvjmepuyolnl-149225721923.asia-southeast1.run.app";
+    
+    if (navigator.share) {
+      navigator.share({
+        title: `${data.girlfriendName || "My Sweetheart"}'s Memory Scrapbook 💖`,
+        text: `A digital keepsake created especially for ${data.girlfriendName || "My Sweetheart"} 💕`,
+        url: publicUrl,
+      }).catch((e) => {
+        console.log("Native share cancelled or failed:", e);
+      });
+    } else {
+      navigator.clipboard.writeText(publicUrl);
+      setSharedToast(true);
+      setTimeout(() => setSharedToast(false), 3000);
+    }
   };
 
   return (
