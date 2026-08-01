@@ -1,9 +1,8 @@
-name: Deploy to GitHub Pages
+name: Deploy TypeScript Site
 
 on:
   push:
-    branches: ["main", "master"]
-  workflow_dispatch:
+    branches: ["main"] # Change to "master" if that is your main branch
 
 permissions:
   contents: read
@@ -12,7 +11,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -21,7 +20,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -33,16 +32,13 @@ jobs:
       - name: Install dependencies
         run: npm ci || npm install
 
-      - name: Build project
+      - name: Build TypeScript
         run: npm run build
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './dist' # Set this to your output folder ('./dist', './build', or './out')
 
       - name: Deploy to GitHub Pages
         id: deployment
